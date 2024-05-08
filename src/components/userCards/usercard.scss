@@ -1,0 +1,70 @@
+.gender {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  height: 50px;
+  border-radius: 5px;
+  outline: none;
+  padding: 10px;
+  border: 1px solid white;
+}
+
+.male,
+.female {
+  display: flex;
+  align-items: center;
+  label{
+    color: white;
+  }
+  gap: 5px;
+}
+
+#male,
+#female {
+  width: 20px;
+}
+
+.wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 50px;
+}
+
+.user__card {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 20px;
+  margin-bottom: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  background-color: #f9f9f9;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.user__card__image {
+  width: 100px;
+  height: 100px;
+  background-color: #ddd;
+  border-radius: 50%;
+  margin-right: 10px;
+  flex-shrink: 0;
+  overflow: hidden;
+  img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+.user__card__info {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+@media (max-width:450px) {
+    .user__card{
+        width: 100%;
+    }
+}

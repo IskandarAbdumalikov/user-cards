@@ -1,0 +1,101 @@
+.todolist {
+  padding: 100px 20px;
+}
+
+.todolist__theme {
+  text-align: center;
+  color: white;
+  font-size: 50px;
+  padding-top: 50px;
+}
+
+.form {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 50px;
+  input {
+    height: 50px;
+    border-radius: 5px;
+    outline: none;
+    padding: 10px;
+  }
+}
+
+@media (max-width: 700px) {
+  .form {
+    grid-template-columns: 1fr;
+  }
+}
+
+body {
+  background: url(../../assets/image.avif) no-repeat center/cover fixed;
+  position: relative;
+}
+
+.create-card {
+  height: 50px;
+  border: 1px solid green;
+  color: white;
+  background: green;
+  border-radius: 10px;
+  font-size: 18px;
+  transition: 0.4s;
+}
+
+.create-card:hover {
+  filter: brightness(0.8);
+}
+
+.edit-btn,
+.delete-btn,
+.learn-btn {
+  padding: 10px 30px;
+  margin-right: 10px;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+
+  &.create-card {
+    background-color: #4caf50;
+    color: #fff;
+  }
+  &.learn-btn {
+    background-color: #4caf50;
+    color: #fff;
+  }
+
+  &.edit-btn {
+    background-color: #2196f3;
+    color: #fff;
+  }
+
+  &.delete-btn {
+    background-color: #f44336;
+    color: #fff;
+  }
+
+  &:hover {
+    filter: brightness(0.8);
+  }
+}
+
+.user__card-btns {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+@media (max-width: 450px) {
+  .user__card-btns {
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+  .edit-btn,
+  .delete-btn,
+  .learn-btn {
+    width: 100%;
+  }
+}
