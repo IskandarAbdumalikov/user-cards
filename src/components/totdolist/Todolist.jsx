@@ -75,6 +75,30 @@ const Todolist = ({ setShowModal }) => {
       localStorage.setItem("users", JSON.stringify(filteredUsers));
     }
   };
+  const notifyDelete = () => {
+    toast.info("You delete user card!", {
+      position: "top-right",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "light",
+    });
+  };
+  const notifyModuleOpen = () => {
+    toast.success("Module succesfully opened!", {
+      position: "top-right",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "light",
+    });
+  };
   const notify = () => {
     toast.success("information saved", {
       position: "top-right",
@@ -194,11 +218,20 @@ const Todolist = ({ setShowModal }) => {
               </button>
               <button
                 className="delete-btn"
-                onClick={() => handleDeleteUser(user.id)}
+                onClick={() => {
+                  handleDeleteUser(user.id);
+                  notifyDelete();
+                }}
               >
                 Delete
               </button>
-              <button className="learn-btn" onClick={() => openModal()}>
+              <button
+                className="learn-btn"
+                onClick={() => {
+                  openModal();
+                  notifyModuleOpen();
+                }}
+              >
                 Details
               </button>
             </div>
