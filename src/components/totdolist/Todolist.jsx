@@ -2,6 +2,8 @@ import React, { useState, useEffect, Fragment } from "react";
 import "./todolist.scss";
 import Usercard from "../userCards/Usercard";
 import { USERDATA } from "../../constants/userData";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const Todolist = ({ setShowModal }) => {
   function openModal() {
@@ -63,7 +65,7 @@ const Todolist = ({ setShowModal }) => {
     setAddress("");
     setTel("");
     setGender("");
-    setImg("")
+    setImg("");
   };
 
   const handleDeleteUser = (id) => {
@@ -72,6 +74,18 @@ const Todolist = ({ setShowModal }) => {
       setUsers(filteredUsers);
       localStorage.setItem("users", JSON.stringify(filteredUsers));
     }
+  };
+  const notify = () => {
+    toast.success("information saved", {
+      position: "top-right",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "light",
+    });
   };
 
   const handleEditUser = (user) => {
@@ -82,7 +96,7 @@ const Todolist = ({ setShowModal }) => {
     setAddress(user.address);
     setTel(user.tel);
     setGender(user.gender);
-    setImg(user.img)
+    setImg(user.img);
   };
 
   return (
@@ -156,7 +170,9 @@ const Todolist = ({ setShowModal }) => {
             </div>
           </div>
 
-          <button className="create-card">{editing ? "Save" : "Create"}</button>
+          <button onClick={notify} className="create-card">
+            {editing ? "Save" : "Create"}
+          </button>
         </form>
       </div>
       <Usercard>
@@ -189,6 +205,7 @@ const Todolist = ({ setShowModal }) => {
           </div>
         ))}
       </Usercard>
+      <ToastContainer />
     </Fragment>
   );
 };
